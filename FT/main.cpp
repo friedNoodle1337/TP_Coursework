@@ -5,9 +5,9 @@ using namespace savranenko;
 int main()
 {
   std::vector< std::string > files;
-  files.push_back("text1.txt");
-  files.push_back("text2.txt");
-  files.push_back("text3.txt");
+  files.push_back("Test-First.txt");
+  files.push_back("Test-Second.txt");
+  files.push_back("Test-Third.txt");
   std::map< std::string, std::map< std::string, std::size_t > > dictOfDicts;
   readFiles(files, dictOfDicts);
 
@@ -64,7 +64,7 @@ int main()
       {
         word = args[1];
         nameOfDict1 = args[2];
-        if (dictOfDicts.contains(nameOfDict1))
+        if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end())
         {
           if (find(word, dictOfDicts.find(nameOfDict1)->second))
           {
@@ -84,7 +84,7 @@ int main()
       else if (args.size() == 2)
       {
         nameOfDict1 = args[1];
-        if (dictOfDicts.contains(nameOfDict1))
+        if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end())
         {
           deleteFunc(dictOfDicts.find(nameOfDict1)->second, dictOfDicts);
           std::cout << nameOfDict1 << " dict was deleted\n";
@@ -115,7 +115,7 @@ int main()
         continue;
       }
       nameOfDict1 = args[1];
-      if (dictOfDicts.contains(nameOfDict1))
+      if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end())
       {
         print(dictOfDicts.find(nameOfDict1)->second);
       }
@@ -141,24 +141,26 @@ int main()
       word = args[1];
       nameOfDict1 = args[2];
       nameOfDict2 = args[3];
-      if (dictOfDicts.contains(nameOfDict1) && dictOfDicts.find(nameOfDict1)->second.contains(word))
+      if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end() &&
+        dictOfDicts.find(nameOfDict1)->second.find(word) != dictOfDicts.find(nameOfDict1)->second.end())
       {
-        if (dictOfDicts.contains(nameOfDict2) && dictOfDicts.find(nameOfDict2)->second.contains(word))
+        if (dictOfDicts.find(nameOfDict2) != dictOfDicts.end() &&
+          dictOfDicts.find(nameOfDict2)->second.find(word) != dictOfDicts.find(nameOfDict2)->second.end())
         {
           if (compare(word, dictOfDicts.find(nameOfDict1)->second, dictOfDicts.find(nameOfDict2)->second))
           {
             if (compare(word, dictOfDicts.find(nameOfDict2)->second, dictOfDicts.find(nameOfDict1)->second))
             {
-              std::cout << "Freq of word in dict1 and in dict2 is equal\n";
+              std::cout << "Freq of word in " << nameOfDict1 << " and in " << nameOfDict2 << " is equal\n";
             }
             else
             {
-              std::cout << "Freq of word in dict 1 is bigger than in dict2\n";
+              std::cout << "Freq of word in " << nameOfDict1 << " is bigger than in " << nameOfDict2 << "\n";
             }
           }
           else
           {
-            std::cout << "Freq of word in dict1 is smaller than in dict2\n";
+            std::cout << "Freq of word in " << nameOfDict1 << " is smaller than in " << nameOfDict2 << "\n";
           }
         }
         else
@@ -179,9 +181,9 @@ int main()
       }
       nameOfDict1 = args[2];
       nameOfDict2 = args[3];
-      if (dictOfDicts.contains(nameOfDict1))
+      if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end())
       {
-        if (dictOfDicts.contains(nameOfDict2))
+        if (dictOfDicts.find(nameOfDict2) != dictOfDicts.end())
         {
           std::string nameOfNewDict = args[1];
           std::map< std::string, std::size_t > newDict = merge(nameOfNewDict, dictOfDicts.find(nameOfDict1)->second,

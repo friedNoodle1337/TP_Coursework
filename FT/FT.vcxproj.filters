@@ -28,13 +28,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="text1.txt">
+    <Text Include="Test-First.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="text2.txt">
+    <Text Include="Test-Second.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="text3.txt">
+    <Text Include="Test-Third.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>

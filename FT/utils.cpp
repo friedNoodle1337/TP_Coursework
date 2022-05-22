@@ -44,7 +44,7 @@ namespace savranenko
     std::size_t freq = 1;
     for (std::size_t i = 0; i < words.size(); i++)
     {
-      if (dict.contains(words[i]) == false)
+      if (dict.find(words[i]) == dict.end())
       {
         for (std::size_t j = i + 1; j < words.size(); j++)
         {
@@ -59,6 +59,11 @@ namespace savranenko
     }
   }
 
+  //bool contains(const std::map< std::string, std::size_t >& dict, const std::string& key)
+  //{
+  //  if (dict.find(key) == )
+  //}
+
   void help()
   {
     std::cout << "Available commands:\n";
@@ -72,7 +77,7 @@ namespace savranenko
 
   bool find(const std::string& word, const std::map< std::string, std::size_t >& dict)
   {
-    return dict.contains(word);
+    return dict.find(word) != dict.end();
   }
 
   void search(const std::string& word, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts)
@@ -102,7 +107,7 @@ namespace savranenko
     }
     else
     {
-      std::cout << ".\n";
+      std::cout << "\n";
     }
   }
 
@@ -156,6 +161,7 @@ namespace savranenko
       dictsIterator != dictOfDicts.cend(); dictsIterator++)
     {
       print(dictsIterator->second);
+      check = true;
     }
     if (check == false)
     {
@@ -180,9 +186,10 @@ namespace savranenko
     std::map< std::string, std::size_t >& dict2, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts)
   {
     std::map< std::string, std::size_t > newDict;
-    newDict.merge(dict2);
-    newDict.merge(dict1);
+    newDict.insert(dict1.begin(), dict1.end());
+    newDict.insert(dict2.begin(), dict2.end());
     deleteFunc(dict1, dictOfDicts);
+    deleteFunc(dict2, dictOfDicts);
 
     dictOfDicts.insert_or_assign(nameOfNewDict, newDict);
 
