@@ -217,7 +217,8 @@ namespace savranenko
     std::cout << dict.find(word)->first << ". Its freq is " << dict.find(word)->second << "\n";
   }
 
-  void makeFreqTable(const std::string& fileName, const std::string& nameOfDict, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts)
+  void makeFreqTable(const std::string& fileName, const std::string& nameOfDict,
+    std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts)
   {
     std::ifstream text(fileName);
     if (text.is_open())
