@@ -12,7 +12,6 @@ namespace savranenko
   void readFiles(std::vector< std::string >& files, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts);
   std::vector< std::string > splitString(const std::string& str);
   void makeFreqDict(std::map< std::string, std::size_t >& dict, const std::vector < std::string >& words);
-  //bool contains(const std::map< std::string, std::size_t >& dict, const std::string& key);
 
   void help();
   bool find(const std::string& word, const std::map< std::string, std::size_t >& dict);

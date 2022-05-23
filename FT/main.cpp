@@ -46,7 +46,7 @@ int main()
       }
       else
       {
-        std::cout << "No such word in " << nameOfDict1 << "\n";
+        std::cerr << "No such word in " << nameOfDict1 << "\n";
       }
     }
     else if (cmd == "search")
@@ -73,12 +73,12 @@ int main()
           }
           else
           {
-            std::cout << "Nothing to delete\n";
+            std::cerr << "Nothing to delete\n";
           }
         }
         else
         {
-          std::cout << "There is not such dict\n";
+          std::cerr << "There is not such dict\n";
         }
       }
       else if (args.size() == 2)
@@ -91,7 +91,7 @@ int main()
         }
         else
         {
-          std::cout << "There is not such dict\n";
+          std::cerr << "There is not such dict\n";
         }
       }
       else
@@ -121,7 +121,7 @@ int main()
       }
       else
       {
-        std::cout << "There is not such dict\n";
+        std::cerr << "There is not such dict\n";
       }
     }
     else if (cmd == "list")
@@ -165,12 +165,12 @@ int main()
         }
         else
         {
-          std::cout << "There is not dict with name " << nameOfDict2 << " or there is not such word in that dict\n";
+          std::cerr << "There is not dict with name " << nameOfDict2 << " or there is not such word in that dict\n";
         }
       }
       else
       {
-        std::cout << "There is not dict with name " << nameOfDict1 << " or there is not such word in that dict\n";
+        std::cerr << "There is not dict with name " << nameOfDict1 << " or there is not such word in that dict\n";
       }
     }
     else if (cmd == "merge")
@@ -192,12 +192,12 @@ int main()
         }
         else
         {
-          std::cout << "There is not dict with name " << nameOfDict2 << "\n";
+          std::cerr << "There is not dict with name " << nameOfDict2 << "\n";
         }
       }
       else
       {
-        std::cout << "There is not dict with name " << nameOfDict1 << "\n";
+        std::cerr << "There is not dict with name " << nameOfDict1 << "\n";
       }
     }
   }

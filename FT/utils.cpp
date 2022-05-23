@@ -59,11 +59,6 @@ namespace savranenko
     }
   }
 
-  //bool contains(const std::map< std::string, std::size_t >& dict, const std::string& key)
-  //{
-  //  if (dict.find(key) == )
-  //}
-
   void help()
   {
     std::cout << "Available commands:\n";
@@ -165,7 +160,7 @@ namespace savranenko
     }
     if (check == false)
     {
-      std::cout << "There is not any dict\n";
+      std::cerr << "There is not any dict\n";
     }
   }
 
