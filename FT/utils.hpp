@@ -26,6 +26,9 @@ namespace savranenko
     const std::map< std::string, std::size_t >& dict2);
   std::map< std::string, std::size_t > merge(const std::string& nameOfNewDict, std::map< std::string, std::size_t >& dict1,
     std::map< std::string, std::size_t >& dict2, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts);
+  void topThree(const std::map< std::string, std::size_t >& dict);
+  void showFreq(const std::string& word, const std::map< std::string, std::size_t >& dict);
+  void makeFreqTable(const std::string& fileName, const std::string& nameOfDict, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts);
 }
 
 #endif

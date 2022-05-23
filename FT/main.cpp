@@ -42,7 +42,6 @@ int main()
       if (find(word, dictOfDicts.find(nameOfDict1)->second))
       {
         std::cout << "\"" << word << "\" is found. ";
-        std::cout << "Its freq is " << dictOfDicts.find(nameOfDict1)->second.find(word)->second << "\n";
       }
       else
       {
@@ -199,6 +198,48 @@ int main()
       {
         std::cerr << "There is not dict with name " << nameOfDict1 << "\n";
       }
+    }
+    else if (cmd == "topThree")
+    {
+      if (args.size() != 2)
+      {
+        continue;
+      }
+      nameOfDict1 = args[1];
+      if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end())
+      {
+        topThree(dictOfDicts.find(nameOfDict1)->second);
+      }
+      else
+      {
+        std::cerr << "There is not dict with name " << nameOfDict1 << "\n";
+      }
+    }
+    else if (cmd == "showFreq")
+    {
+      if (args.size() != 3)
+      {
+        continue;
+      }
+      word = args[1];
+      nameOfDict1 = args[2];
+      if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end() &&
+        dictOfDicts.find(nameOfDict1)->second.find(word) != dictOfDicts.find(nameOfDict1)->second.end())
+      {
+        showFreq(word, dictOfDicts.find(nameOfDict1)->second);
+      }
+      else
+      {
+        std::cerr << "There is not dict with name " << nameOfDict1 << " or there is not such word\n";
+      }
+    }
+    else if (cmd == "makeFreqTable")
+    {
+      if (args.size() != 3)
+      {
+        continue;
+      }
+      makeFreqTable(args[1], args[2], dictOfDicts);
     }
   }
 

@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "utils.hpp"
 
 namespace savranenko
@@ -68,6 +70,9 @@ namespace savranenko
     std::cout << "print [dict] - print a dict\nlist - print a list of dicts\n";
     std::cout << "compare [word] [dict1] [dict2] - compare freq of a word in two dicts\n";
     std::cout << "merge [name_of_new_dict] [dict1] [dict2] - merge two dicts in one but without repeats\n";
+    std::cout << "topThree [dict] - print 3 words with the biggest freqs\n";
+    std::cout << "showFreq [word] [dict] - show freq of the word in the dict\n";
+    std::cout << "makeFreqTable [file] [name_of_dict] - make freq dict\n";
   }
 
   bool find(const std::string& word, const std::map< std::string, std::size_t >& dict)
@@ -189,5 +194,44 @@ namespace savranenko
     dictOfDicts.insert_or_assign(nameOfNewDict, newDict);
 
     return newDict;
+  }
+
+  void topThree(const std::map< std::string, std::size_t >& dict)
+  {
+    std::vector< std::pair< std::size_t, std::string > > tempVect;
+    for (std::map< std::string, std::size_t >::const_iterator it = dict.cbegin();
+      it != dict.cend(); it++)
+    {
+      tempVect.push_back(std::make_pair(it->second, it->first));
+    }
+    std::stable_sort(tempVect.rbegin(), tempVect.rend());
+
+    for (std::size_t i = 0; i < 3; i++)
+    {
+      std::cout << tempVect[i].second << " " << tempVect[i].first << "\n";
+    }
+  }
+
+  void showFreq(const std::string& word, const std::map< std::string, std::size_t >& dict)
+  {
+    std::cout << dict.find(word)->first << ". Its freq is " << dict.find(word)->second << "\n";
+  }
+
+  void makeFreqTable(const std::string& fileName, const std::string& nameOfDict, std::map< std::string, std::map< std::string, std::size_t > >& dictOfDicts)
+  {
+    std::ifstream text(fileName);
+    if (text.is_open())
+    {
+      std::string str = "";
+      std::getline(text, str);
+      text.close();
+      std::map< std::string, std::size_t > dict;
+      makeFreqDict(dict, splitString(str));
+      dictOfDicts.insert_or_assign(nameOfDict, dict);
+    }
+    else
+    {
+      std::cerr << "File is not open!\n";
+    }
   }
 }
