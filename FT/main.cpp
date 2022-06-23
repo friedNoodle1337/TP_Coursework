@@ -45,7 +45,7 @@ int main()
       }
       else
       {
-        std::cerr << "No such word in " << nameOfDict1 << "\n";
+        std::cout << "No such word in " << nameOfDict1 << "\n";
       }
     }
     else if (cmd == "search")
