@@ -1,6 +1,10 @@
 #include "utils.hpp"
+#include "Command.hpp"
+#include "ShowFreqCommand.hpp"
 
 using namespace savranenko;
+using command_t = std::shared_ptr< Command >;
+using map_of_dicts_t = std::map< std::string, std::map< std::string, std::size_t > >;
 
 int main()
 {
@@ -8,7 +12,7 @@ int main()
   files.push_back("Test-First.txt");
   files.push_back("Test-Second.txt");
   files.push_back("Test-Third.txt");
-  std::map< std::string, std::map< std::string, std::size_t > > dictOfDicts;
+  map_of_dicts_t dictOfDicts;
   readFiles(files, dictOfDicts);
 
   std::string cmd = "";
@@ -17,6 +21,11 @@ int main()
   std::string word = "";
   std::string nameOfDict1 = "";
   std::string nameOfDict2 = "";
+
+  std::map< std::string, command_t > mapOfCommands(
+  {
+    {"showFreq", command_t(new ShowFreqCommand(std::ref(args), std::ref(dictOfDicts)))}
+  });
 
   while (std::getline(std::cin, strOfArgs))
   {
@@ -215,23 +224,25 @@ int main()
         std::cerr << "There is not dict with name " << nameOfDict1 << "\n";
       }
     }
-    else if (cmd == "showFreq")
+    else if (mapOfCommands.find(cmd) != mapOfCommands.end())
     {
-      if (args.size() != 3)
-      {
-        continue;
-      }
-      word = args[1];
-      nameOfDict1 = args[2];
-      if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end() &&
-        dictOfDicts.find(nameOfDict1)->second.find(word) != dictOfDicts.find(nameOfDict1)->second.end())
-      {
-        showFreq(word, dictOfDicts.find(nameOfDict1)->second);
-      }
-      else
-      {
-        std::cerr << "There is not dict with name " << nameOfDict1 << " or there is not such word\n";
-      }
+      //if (args.size() != 3)
+      //{
+      //  continue;
+      //}
+      //word = args[1];
+      //nameOfDict1 = args[2];
+      //if (dictOfDicts.find(nameOfDict1) != dictOfDicts.end() &&
+      //  dictOfDicts.find(nameOfDict1)->second.find(word) != dictOfDicts.find(nameOfDict1)->second.end())
+      //{
+      //  showFreq(word, dictOfDicts.find(nameOfDict1)->second);
+      //}
+      //else
+      //{
+      //  std::cerr << "There is not dict with name " << nameOfDict1 << " or there is not such word\n";
+      //}
+      //ShowFreqCommand(std::ref(args), std::ref(dictOfDicts)).execute();
+      mapOfCommands[cmd]->execute();
     }
     else if (cmd == "makeFreqTable")
     {
