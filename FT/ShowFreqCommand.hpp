@@ -18,7 +18,12 @@ namespace savranenko
     void execute() override
     {
       checkExceptions();
-      std::cout << args_[1] << ": Its frequency is " << mapOfDicts_.find(args_[2])->second.find(args_[1])->second << "\n";
+      std::cout << args_[1] << ": Its frequency is " << mapOfDicts_[args_[2]][args_[1]] << "\n";
+    }
+
+    std::string getDescription() override
+    {
+      return description_;
     }
 
   private:
@@ -35,11 +40,11 @@ namespace savranenko
 
       map_of_dicts_t::iterator foundDict = mapOfDicts_.find(args_[2]);
       bool isDictExists = foundDict != mapOfDicts_.end();
-      bool isWordExists = foundDict->second.find(args_[1]) != foundDict->second.end();
       if (!isDictExists)
       {
         throw std::logic_error("There is not such dict");
       }
+      bool isWordExists = foundDict->second.find(args_[1]) != foundDict->second.end();
       if (!isWordExists)
       {
         throw std::logic_error("There is not such word");

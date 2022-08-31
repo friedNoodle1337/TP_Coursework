@@ -1,10 +1,9 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
 
-#include <functional>
-#include <vector>
-#include <string>
 #include <stdexcept>
+
+#include "utils.hpp"
 
 namespace savranenko
 {
@@ -14,6 +13,7 @@ namespace savranenko
     virtual ~Command() = default;
 
     virtual void execute() = 0;
+    virtual std::string getDescription() = 0;
 
   private:
     virtual void checkExceptions() = 0;

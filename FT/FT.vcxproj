@@ -145,10 +145,19 @@
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ClearCommand.hpp" />
     <ClInclude Include="Command.hpp" />
+    <ClInclude Include="CompareCommand.hpp" />
+    <ClInclude Include="DeleteCommand.hpp" />
     <ClInclude Include="FindCommand.hpp" />
-    <ClInclude Include="Help.hpp" />
+    <ClInclude Include="HelpCommand.hpp" />
+    <ClInclude Include="ListCommand.hpp" />
+    <ClInclude Include="MakeFreqTableCommand.hpp" />
+    <ClInclude Include="MergeCommand.hpp" />
+    <ClInclude Include="PrintCommand.hpp" />
+    <ClInclude Include="SearchCommand.hpp" />
     <ClInclude Include="ShowFreqCommand.hpp" />
+    <ClInclude Include="TopThreeCommand.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
