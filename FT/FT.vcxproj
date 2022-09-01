@@ -141,7 +141,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="main2.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Test-First.txt" />
+    <Text Include="Test-Fourth.txt" />
     <Text Include="Test-Second.txt" />
     <Text Include="Test-Third.txt" />
   </ItemGroup>

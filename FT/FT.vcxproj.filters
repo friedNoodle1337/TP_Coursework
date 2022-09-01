@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы ресурсов\Test texts">
+      <UniqueIdentifier>{6bbdbb22-f194-4d05-a198-6e43b5f991b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Commands">
+      <UniqueIdentifier>{1ab015b7-9290-411e-ac63-643c83ad4e36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,63 +27,63 @@
     <ClCompile Include="utils.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="main2.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Command.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="HelpCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="FindCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ShowFreqCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DeleteCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="ClearCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="PrintCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ListCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Command.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
     </ClInclude>
     <ClInclude Include="CompareCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="MergeCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="DeleteCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="TopThreeCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="FindCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ListCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
     </ClInclude>
     <ClInclude Include="MakeFreqTableCommand.hpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowFreqCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="TopThreeCommand.hpp">
+      <Filter>Файлы заголовков\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Test-First.txt">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Test texts</Filter>
+    </Text>
+    <Text Include="Test-Fourth.txt">
+      <Filter>Файлы ресурсов\Test texts</Filter>
     </Text>
     <Text Include="Test-Second.txt">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Test texts</Filter>
     </Text>
     <Text Include="Test-Third.txt">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Test texts</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -11,7 +11,6 @@
 #include "TopThreeCommand.hpp"
 #include "ShowFreqCommand.hpp"
 #include "MakeFreqTableCommand.hpp"
-
 #include "HelpCommand.hpp"
 
 using namespace savranenko;
@@ -19,16 +18,11 @@ using command_t = std::shared_ptr< Command >;
 
 int main()
 {
-  std::vector< std::string > files;
-  files.push_back("Test-First.txt");
-  files.push_back("Test-Second.txt");
-  files.push_back("Test-Third.txt");
+  std::vector< std::string > files{"Test-First.txt", "Test-Second.txt", "Test-Third.txt"};
   map_of_dicts_t dictOfDicts;
   readFiles(files, dictOfDicts);
 
-  std::string strOfArgs = "";
   std::vector< std::string > args;
-
   std::map< std::string, command_t > mapOfCommands(
   {
     {"find", command_t(new FindCommand(std::ref(args), std::ref(dictOfDicts)))},
@@ -45,10 +39,10 @@ int main()
   });
   mapOfCommands["help"] = command_t(new HelpCommand(std::ref(args), std::ref(mapOfCommands)));
 
+  std::string strOfArgs = "";
   while (std::getline(std::cin, strOfArgs))
   {
     args = splitString(strOfArgs);
-
     try
     {
       if (mapOfCommands.find(args[0]) != mapOfCommands.end())

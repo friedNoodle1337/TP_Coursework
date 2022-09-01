@@ -4,11 +4,7 @@ namespace savranenko
 {
   void readFiles(std::vector< std::string >& files, map_of_dicts_t& dictOfDicts)
   {
-    std::vector< std::string > dictNames;
-    dictNames.push_back("first");
-    dictNames.push_back("second");
-    dictNames.push_back("third");
-
+    std::vector< std::string > dictNames{"first", "second", "third"};
     for (std::size_t i = 0; i < files.size(); i++)
     {
       std::ifstream text(files[i]);
