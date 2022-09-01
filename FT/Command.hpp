@@ -18,6 +18,8 @@ namespace savranenko
   private:
     virtual void checkExceptions() = 0;
   };
+
+  using command_t = std::shared_ptr< Command >;
 }
 
 #endif

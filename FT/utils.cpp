@@ -2,7 +2,7 @@
 
 namespace savranenko
 {
-  void readFiles(std::vector< std::string >& files, map_of_dicts_t& dictOfDicts)
+  void readFiles(std::vector< std::string >& files, map_of_dicts_t& mapOfDicts)
   {
     std::vector< std::string > dictNames{"first", "second", "third"};
     for (std::size_t i = 0; i < files.size(); i++)
@@ -18,7 +18,7 @@ namespace savranenko
       text.close();
       std::map< std::string, std::size_t > dict;
       makeFreqDict(dict, splitString(str));
-      dictOfDicts.insert_or_assign(dictNames[i], dict);
+      mapOfDicts.insert_or_assign(dictNames[i], dict);
     }
   }
 
